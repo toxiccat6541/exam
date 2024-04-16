@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>{% block title %} films {% endblock %}</h1>
+    {% for film in films %}
+        <div class='films'>
+            <h3>#{{ film[0] }} | {{ film[1] }} | {{ film[2] }}
+        </div>
+    {% endfor %}
+{% endblock %}
