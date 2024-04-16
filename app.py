@@ -36,6 +36,7 @@ def auth():
             inf = cur.fetchall()
             cur.close()
             conn.close()
+            #egor
             print(int(inf[0][0]))
             print(int(id_))
             if int(inf[0][0])==int(id_):
