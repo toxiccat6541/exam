@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  database:
+    container_name: db
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    networks:
+     - appnet
+
+  app:
+    container_name: exam
+    image: toxicat/exam1:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - database
+    stdin_open: true
+    tty: true
+    ports:
+      - "5000:5000"
+    networks:
+     - appnet
+    
+networks:
+ appnet:
+  name: internet
+  driver: bridge 

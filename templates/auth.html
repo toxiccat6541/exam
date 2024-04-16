@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>{% block title %} Авторизация {% endblock %}</h1>
+      <form action="" method="post">
+        <p>
+          <label for="id">id</label>
+          <input type="text" name="id">
+        </p>
+        <p>
+          <input type="submit">
+        </p>
+      </form>
+      {% for data in inf %}
+        <div class='films'>
+            <h3>#{{ data[0] }} | {{ data[1] }} | {{ data[2] }} | {{ data[3] }} | {{ data[4] }}
+        </div>
+      {% endfor %}
+{% endblock %}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} forum</title>
+    <style>
+      nav a {
+          color: blue;
+          font-size: 3em;
+          margin-left: 50px;
+          text-decoration: none;    
+      }
+      
+      .films {
+          padding: 20px;
+          margin: 10px;
+          background-color: #f7f4f4;
+      }
+      
+      .review {
+              margin-left: 50px;
+              font-size: 20px;      
+      }
+    </style>
+
+<body>
+  <nav style="display: flex; justify-content: space-between">
+    <a href="{{ url_for('index') }}">kino ot politech</a>
+    <form  action="{{ url_for('auth') }}" style="display: flex; justify-content: space-between">
+      <button class="auth-btn">Войти</button>
+    </form>
+  </nav>
+  <hr>
+  <div class="content" style="justify-content: center; align-items: center; display: flex; flex-direction: column;">
+      {% block content %} {% endblock %}
+  </div>
+
+
+    <footer class="fixed-bottom bg-dark text-center text-lg-start">
+        <div class="text-center p-3 text-light">
+         <!   © !>
+        </div>
+    </footer>
+
+</body>
+
+</html>
